@@ -1,5 +1,10 @@
 @favoriteblue: #2196F3;
+@thedarkside: rgba(0,0,0,0.07);
+@nuka-cola-rads: 2px;
+@slightly-evil-shadow: 2px 2px 2px @thedarkside;
+
 body {
+    background: #fff;
     color: #222;
     font-family: 'Open sans', 'Helvetica', sans-serif;
 }
@@ -24,21 +29,46 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
+}
+.search {
+    background: rgba(0,0,0,0.04);
+    padding: 1em;
+    width: 60%;
+    margin-bottom: 1em;
+    border-radius: @nuka-cola-rads;
+    box-shadow: @slightly-evil-shadow;
+    h2 {
+        margin: 0;
+    }
+    input {
+        height:2em;
+        width: 100%;
+        border:solid 1px #666;
+        border-radius: @nuka-cola-rads;
+    }
+    .info {margin-top:0.5em;}
 }
 .features {
     display: flex;
     text-align: center;
     width: 60%;
-    justify-content: space-around;
+    justify-content: stretch;
+    align-items: stretch;
     .feature {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+      &:last-child {border-right:none;}
+      border-right:solid 1px @thedarkside;
+      flex-grow:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         @size: 3em;
         a {
-            margin: 1em 0.2em;
-            color:#444;
+          &:last-child {border-right:none;}
+          border-right:solid 1px @thedarkside;
+          margin-top:1em;
+            padding: 0.2em;
+            color: #444;
         }
         .piccie {
             svg {
@@ -53,6 +83,7 @@ main {
             height: @size*3;
             border-radius: @size*2;
             display: flex;
+            box-shadow: @slightly-evil-shadow;
         }
         &.lists {
             .piccie {

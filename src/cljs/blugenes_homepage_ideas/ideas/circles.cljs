@@ -22,18 +22,20 @@
     [:a {:href "nope"} "Docs/Help"]]
    ])
 
-
+(defn search []
+  [:form.search
+   [:div.input
+    [:label [:h2 "Search"]
+    [:input {:type "text"}]]]
+   [:div.info
+    [:svg.icon.icon-info [:use {:xlinkHref "#icon-info"}]]
+    " Search for genes, proteins, pathways, ontology terms, authors, etc."]])
 
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [:main
-       [:form
-        [:label [:h2 "Search"]
-        [:input {:type "text"}]]
-        [:div
-         [:svg.icon.icon-info [:use {:xlinkHref "#icon-info"}]]
-         "Search for genes, proteins, pathways, ontology terms, authors, etc."]]
+       [search]
        [:div.features
         [lists]
         [templates]
