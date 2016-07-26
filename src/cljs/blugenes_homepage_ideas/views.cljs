@@ -1,5 +1,6 @@
 (ns blugenes-homepage-ideas.views
     (:require [re-frame.core :as re-frame]
+              [blugenes-homepage-ideas.icons :as icons]
               [blugenes-homepage-ideas.ideas.circles :as circles]))
 
 
@@ -34,4 +35,5 @@
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
-      [show-panel @active-panel])))
+      [:div [icons/icons]
+      [show-panel @active-panel]])))
